@@ -109,3 +109,8 @@ function connectionView()
 {
 	require('view/frontend/connectionView.php');
 }
+
+function errorConnectionView() 
+{
+    require('view/frontend/errorConnectionView.php');
+}
