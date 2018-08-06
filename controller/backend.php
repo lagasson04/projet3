@@ -24,5 +24,19 @@ function connectionTest($login, $pass) {
 		//require('view/backend/trueConnectionView.php');
 		header('Location: index.php?action=adminView');
 	}
+}
 
+function showAdminPage() 
+{
+	require('view/backend/adminViewPage.php');
+}
+
+function log_Out()
+{
+	session_start();
+	$_SESSION = array();
+	session_destroy();
+	setcookie('login', '');
+	setcookie('pass_hache', '');
+	header('Location: index.php?action=lastPost');
 }

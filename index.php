@@ -98,6 +98,24 @@ try { // On essaie de faire des choses
 		}   
 //--------->FIN 
 
+//---------> Ajout de l'action pour la vue admin
+		elseif ($_GET['action'] == 'adminView'){
+			if (session_start() && isset($_SESSION['login']) && isset($_SESSION['pass'])) {
+				showAdminPage();
+			}
+			else {
+				session_destroy();
+				zozor();
+			}
+		}    
+//--------->FIN
+
+//---------> Ajout de l'action deconnexion
+		elseif ($_GET['action'] == 'log_Out') {
+			log_Out();
+		}
+//--------->FIN
+
 	}
 
 	else {
