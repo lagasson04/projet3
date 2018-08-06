@@ -168,6 +168,50 @@ try { // On essaie de faire des choses
 		}
 //--------->FIN
 
+//-------> Ajout de l'action pour la modification de chapitre
+		elseif ($_GET['action'] == 'modifiedPost'){
+			if (isset($_GET['postId']) && $_GET['postId'] > 0 ) {
+				if (isset($_POST['title']) && isset($_POST['content']) && !empty($_POST['content'])) {
+					modifiedPost($_POST['title'], $_POST['content'], $_GET['postId']);
+				}
+				else {
+					header('Location: index.php?action=modifyPost&postId=' . $_GET['postId']);
+				}
+			}
+			else {
+				throw new Exception('Aucun identifiant de chapitre envoyé');
+			}   
+		}
+//--------->FIN
+
+//---------> Ajout de l'action de confirmation de suppression de chapitre
+		elseif ($_GET['action']  == 'confirmDeletePostView') {
+			if (session_start() && isset($_SESSION['login']) && isset($_SESSION['pass']) && isset($_POST['delete'])) {
+				confirmDeletePostView();
+			}
+			else {
+				session_destroy();
+				zozor();
+			}
+		}
+//--------->FIN
+
+//-------> Ajout de l'action pour la supression de chapitre
+		elseif ($_GET['action'] == 'deletePost') {
+			if (session_start() && isset($_SESSION['login']) && isset($_SESSION['pass']) && isset($_GET['idp'])) {
+				deletePost($_GET['idp']);
+			}
+			else {
+				session_destroy();
+				zozor();
+			}
+		}
+//--------->FIN
+
+		else {
+			throw new Exception('Action non valide !!!');
+		}
+
 	}
 
 	else {

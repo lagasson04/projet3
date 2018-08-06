@@ -72,3 +72,32 @@ function showModifPostView($idp)
 	$post = $postManager->getPost($idp);
 	require('view/backend/modifyPostView.php');
 }
+
+function modifiedPost($title, $content, $idp) 
+{
+	$postManager = new PostManager();
+	$modifyPost = $postManager->modifyPost($title, $content, $idp);
+	if ($modifyPost === false) {
+		die('Impossible de modifier le chapitre !');
+	}
+	else {
+		header('Location: index.php?action=showModifPage');
+	}
+}
+
+function confirmDeletePostView()
+{
+	require('view/backend/confirmDeletePostView.php');
+}
+
+function deletePost($postId) 
+{
+	$postManager = new PostManager();
+	$deletepost = $postManager->deletePost($postId);
+	if ($deletepost === false) {
+		die('Impossible de supprimer le chapitre !');
+	}
+	else {
+		header('Location: index.php?action=showModifPage');
+	}
+}

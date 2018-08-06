@@ -43,4 +43,12 @@ class PostManager extends Manager
         $req = $db->prepare('UPDATE posts SET title = ?, content = ? WHERE id = ?');
         $req->execute(array($title, $content, $postId)); 
     }
+
+    public function deletePost($idp) 
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('DELETE FROM posts WHERE id = ?');
+        $isDeleted = $req->execute(array($idp));
+        return $isDeleted;
+    }
 }
