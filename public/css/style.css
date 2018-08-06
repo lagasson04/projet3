@@ -1,0 +1,51 @@
+body {
+	height: 100%;
+	background: url(../img/bg2.jpg) no-repeat center fixed; 
+	-webkit-background-size: cover;  pour anciens Chrome et Safari 
+	background-size: cover; /* version standardisée */
+	background-color: transparent;
+}
+
+.adcomment {
+	text-align: center;
+}
+
+.readmore {
+	color: red;
+}
+
+.img-fluid {
+	display:block;
+	width:auto;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.action, .add, .confirmDelete, .connectionView, .send, .modify, .modComment {
+	display: flex;
+	justify-content: center;
+}
+
+.comment {
+	text-align: center;
+}
+
+@media only screen and (max-width: 500px) {
+	body {
+		text-align: center;
+	}
+	h1 {
+		text-align: center;
+		font-size: 30px;
+	}
+	.col-xs-12 {
+		font-size: 0.4em;
+	}
+	textarea {
+		width: 12em;
+		height: 10em;
+	}
+	.action {
+		font-size: 0.8em;
+	}
+}
