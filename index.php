@@ -221,6 +221,19 @@ try { // On essaie de faire des choses
 		}
 //--------->FIN
 
+//-------> Ajout de l'action pour la modération des commentaires
+		elseif ($_GET['action'] == 'modComment'){
+			if (session_start() && isset($_SESSION['login']) && isset($_SESSION['pass']) && isset($_GET['idc'])) {
+				modComment($_GET['idc']);
+			}
+
+			else {
+				session_destroy();
+				zozor();
+			}
+		}
+//--------->FIN
+
 		else {
 			throw new Exception('Action non valide !!!');
 		}

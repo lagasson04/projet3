@@ -36,4 +36,13 @@ class CommentManager extends Manager
 
 		return $comments;
 	}
+
+	public function moderateComment($idc)
+	{
+		$db = $this->dbconnect();
+		$req = $db->prepare('UPDATE comments SET report = 0 WHERE id = ?');
+		$affectedLines = $req->execute(array($idc));
+
+		return $affectedLines;
+	}
 }

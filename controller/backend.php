@@ -113,3 +113,16 @@ function showReportedComment()
 		require('view/backend/commentAdminView.php');
 	}
 }
+
+function modComment($idc) 
+{
+	$commentManager = new CommentManager();
+	//$comments = $commentManager->getReportedComments();
+	$affectedLines = $commentManager->moderateComment($idc);
+	if ($affectedLines == false) {
+		throw new Exception('Impossible de modérer les commentaires signalés');
+	}
+	else {
+		header('Location: index.php?action=showReportedComment');
+	}
+}
