@@ -47,6 +47,20 @@ try { // On essaie de faire des choses
 		}
 //--------->FIN
 
+
+//---------> Ajout action signalement commentaire
+		elseif ($_GET['action'] == 'reportCom'){
+			if (isset($_GET['idc'])) {
+				reportComment($_GET['idc'], $_GET['idp']);
+
+			}
+			else {
+                // Erreur ! On arrête tout, on envoie une exception, donc au saute directement au catch
+				throw new Exception('Aucun signalement de commentaire envoyé');
+			}
+		}
+//--------->FIN 
+		
 	}
 
 	else {
