@@ -68,18 +68,35 @@ try { // On essaie de faire des choses
 //--------->FIN
 
 //---------> Ajout action page contact
-        elseif ($_GET['action'] == 'showContactView') {
-            contactView();
-        }
+		elseif ($_GET['action'] == 'showContactView') {
+			contactView();
+		}
 //--------->FIN
 
 //---------> Ajout action message envoyé
-        elseif ($_GET['action'] == 'contactMe') {
-            if (isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['email']) || isset($_POST['message'])) {
-                contactMe($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['message']);
-            }
-        }
+		elseif ($_GET['action'] == 'contactMe') {
+			if (isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['email']) || isset($_POST['message'])) {
+				contactMe($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['message']);
+			}
+		}
 //--------->FIN
+
+//---------> Ajout action vue page de connexion
+		elseif ($_GET['action'] == 'showConnectionView') {
+			connectionView();
+		}
+//--------->FIN
+
+//---------> Ajout de l'action pour tester la connexion
+		elseif ($_GET['action'] == 'connectTest'){
+			if (isset($_POST['login']) && isset($_POST['pass'])) {
+				connectionTest($_POST['login'], $_POST['pass']);
+			}
+			else {
+				throw new Exception('Identifiant ou mot de passe incorrect!!!');
+			}   
+		}   
+//--------->FIN 
 
 	}
 
