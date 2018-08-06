@@ -58,3 +58,10 @@ function addPost($title, $content)
 		header('Location: index.php?action=showModifPage');
 	}
 }
+
+function showModifPage() 
+{
+	$postManager = new PostManager();
+	$posts = $postManager->getPosts();
+	require('view/backend/showModifPage.php');
+}

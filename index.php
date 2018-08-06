@@ -139,6 +139,18 @@ try { // On essaie de faire des choses
 		}
 //--------->FIN
 
+//-------> Ajout de l'action pour la vue admin pour modifier ou supprimer un chapitre
+		elseif ($_GET['action'] == 'showModifPage'){
+			if (session_start() && isset($_SESSION['login']) && isset($_SESSION['pass'])) {
+				showModifPage();
+			}
+			else {
+				session_destroy();
+				zozor();
+			}
+		}
+//--------->FIN
+
 	}
 
 	else {
