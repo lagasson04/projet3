@@ -66,7 +66,21 @@ try { // On essaie de faire des choses
 			biography();
 		}
 //--------->FIN
-		
+
+//---------> Ajout action page contact
+        elseif ($_GET['action'] == 'showContactView') {
+            contactView();
+        }
+//--------->FIN
+
+//---------> Ajout action message envoyé
+        elseif ($_GET['action'] == 'contactMe') {
+            if (isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['email']) || isset($_POST['message'])) {
+                contactMe($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['message']);
+            }
+        }
+//--------->FIN
+
 	}
 
 	else {
