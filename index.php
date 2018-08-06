@@ -208,10 +208,22 @@ try { // On essaie de faire des choses
 		}
 //--------->FIN
 
+//-------> Ajout de l'action pour la vue des commentaires signalés
+		elseif ($_GET['action'] == 'showReportedComment'){
+			if (session_start() && isset($_SESSION['login']) && isset($_SESSION['pass'])) {
+				showReportedComment();
+			}
+
+			else {
+				session_destroy();
+				zozor();
+			}
+		}
+//--------->FIN
+
 		else {
 			throw new Exception('Action non valide !!!');
 		}
-
 	}
 
 	else {

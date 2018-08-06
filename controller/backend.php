@@ -101,3 +101,15 @@ function deletePost($postId)
 		header('Location: index.php?action=showModifPage');
 	}
 }
+
+function showReportedComment() 
+{
+	$commentManager = new CommentManager();
+	$comments = $commentManager->getReportedComments();
+	if ($comments === false) {
+		throw new Exception('Impossible d\'afficher les commentaires signalés');
+	}
+	else {
+		require('view/backend/commentAdminView.php');
+	}
+}
