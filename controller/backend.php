@@ -65,3 +65,10 @@ function showModifPage()
 	$posts = $postManager->getPosts();
 	require('view/backend/showModifPage.php');
 }
+
+function showModifPostView($idp) 
+{
+	$postManager = new PostManager();
+	$post = $postManager->getPost($idp);
+	require('view/backend/modifyPostView.php');
+}

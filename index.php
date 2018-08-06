@@ -151,6 +151,23 @@ try { // On essaie de faire des choses
 		}
 //--------->FIN
 
+//-------> Ajout de l'action pour la vue de modification de chapitre
+		elseif ($_GET['action'] == 'modifyPost'){
+			if (isset($_GET['postId']) && $_GET['postId'] > 0) {
+				if (session_start() && isset($_SESSION['login']) && isset($_SESSION['pass']) && isset($_GET['postId'])) {
+					showModifPostView($_GET['postId']);
+				}
+				else {
+					session_destroy();
+					zozor();
+				}
+			}
+			else {
+				throw new Exception('Aucun identifiant de chapitre envoyé');
+			}
+		}
+//--------->FIN
+
 	}
 
 	else {

@@ -36,4 +36,11 @@ class PostManager extends Manager
         $affectedLines = $adPost->execute(array($title, $content));
         return $affectedLines;
     }
+
+    public function modifyPost($title, $content, $postId)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('UPDATE posts SET title = ?, content = ? WHERE id = ?');
+        $req->execute(array($title, $content, $postId)); 
+    }
 }
