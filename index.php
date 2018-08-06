@@ -128,6 +128,17 @@ try { // On essaie de faire des choses
 		}
 //--------->FIN
 
+//-------> Ajout de l'action pour l'ajout de chapitre
+		elseif ($_GET['action'] == 'addPost'){
+			if (isset($_POST['title']) && isset($_POST['content']) && !empty($_POST['content'])) {
+				addPost($_POST['title'], $_POST['content']);
+			}
+			else {
+				header('Location: index.php?action=showAddPostView');
+			}
+		}
+//--------->FIN
+
 	}
 
 	else {

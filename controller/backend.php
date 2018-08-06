@@ -5,7 +5,8 @@ require_once('model/CommentManager.php');
 require_once('model/UserManager.php');
 require_once('model/BioManager.php');
 
-function connectionTest($login, $pass) {
+function connectionTest($login, $pass) 
+{
 	//si la connexion marche, on envoi vers l'espace d'administration. Sinon on renvoi vers la vue de connexion
 	$userManager = new UserManager();
 	$isPasswordCorrect = $userManager->getConnection($_POST['login'], $_POST['pass']); 
@@ -44,4 +45,16 @@ function log_Out()
 function showAddPostView() 
 {
 	require('view/backend/addPostView.php');
+}
+
+function addPost($title, $content) 
+{
+	$postManager = new PostManager();
+	$addPost = $postManager->postPost($title, $content);
+	if ($addPost === false) {
+		die('Impossible d\'ajouter le chapitre !');
+	}
+	else {
+		header('Location: index.php?action=showModifPage');
+	}
 }
