@@ -28,8 +28,27 @@ try { // On essaie de faire des choses
 			}
 		}
 //--------->FIN
-		
+
+//---------> Ajout action ajout de commentaire        
+		elseif ($_GET['action'] == 'addComment') {
+			if (isset($_GET['id']) && $_GET['id'] > 0) {
+				if (!empty($_POST['author']) && !empty($_POST['comment'])) {
+					addComment($_GET['id'], $_POST['author'], $_POST['comment']);
+				}
+				else {
+                    // Autre exception
+					throw new Exception('Tous les champs ne sont pas remplis !');
+				}
+			}
+			else {
+                // Autre exception
+				throw new Exception('Aucun identifiant de billet envoyé');
+			}
+		}
+//--------->FIN
+
 	}
+
 	else {
 		lastPost();
 	}   
