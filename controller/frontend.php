@@ -3,7 +3,7 @@
 // Chargement des classes
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
-//require_once('model/BioManager.php');
+require_once('model/BioManager.php');
 
 function listPosts()
 {
@@ -36,7 +36,7 @@ function addComment($postId, $author, $comment)
 {
 	$commentManager = new CommentManager();
 	$affectedLines = $commentManager->postComment($postId, $author, $comment);
-	
+
 	if ($affectedLines === false) {
 		throw new Exception('Impossible d\'ajouter le commentaire !');
 	}
@@ -55,4 +55,17 @@ function reportComment($idc, $idp)
 	else {
 		header('Location: index.php?action=post&id=' . $idp);
 	}
+}
+
+function biography()
+{
+    $bioManager = new BioManager();
+    $biography = $bioManager->getBio();
+
+    if ($biography === false) {
+        throw new Exception('Impossible d\'afficher la biographie !');
+    }
+    else {
+        require('view/frontend/biography.php');
+    }
 }

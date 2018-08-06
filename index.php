@@ -60,6 +60,12 @@ try { // On essaie de faire des choses
 			}
 		}
 //--------->FIN 
+
+//---------> Ajout de l'action vue biographie
+		elseif ($_GET['action'] == 'biography') {
+			biography();
+		}
+//--------->FIN
 		
 	}
 
