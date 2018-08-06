@@ -116,6 +116,18 @@ try { // On essaie de faire des choses
 		}
 //--------->FIN
 
+//-------> Ajout de l'action pour la vue de l'ajout de chapitre
+		elseif ($_GET['action'] == 'showAddPostView'){
+			if (session_start() && isset($_SESSION['login']) && isset($_SESSION['pass'])) {
+				showAddPostView();
+			}
+			else {
+				session_destroy();
+				zozor();
+			}
+		}
+//--------->FIN
+
 	}
 
 	else {

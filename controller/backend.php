@@ -40,3 +40,8 @@ function log_Out()
 	setcookie('pass_hache', '');
 	header('Location: index.php?action=lastPost');
 }
+
+function showAddPostView() 
+{
+	require('view/backend/addPostView.php');
+}
