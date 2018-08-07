@@ -77,6 +77,7 @@ try { // On essaie de faire des choses
 		elseif ($_GET['action'] == 'contactMe') {
 			if (isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['email']) || isset($_POST['message'])) {
 				contactMe($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['message']);
+				contactView();
 			}
 		}
 //--------->FIN
@@ -274,7 +275,7 @@ try { // On essaie de faire des choses
 //-------> Ajout de l'action pour la modification de la bio
 		elseif ($_GET['action'] == 'modifiedBio'){
 			if (isset($_POST['biography']) && !empty($_POST['biography'])) {
-				if (session_start() && isset($_SESSION['login']) && isset($_SESSION['pass']) && isset($_POST['biography'])) {
+				if (session_start() && isset($_SESSION['login']) && isset($_SESSION['pass'])) {
 					modifiedBio($_POST['biography']);
 				}
 				else {

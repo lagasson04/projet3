@@ -25,7 +25,7 @@
                         </h3>
                     </div>
                     <div class="card-body">
-                        <p><?= nl2br($post['content']) ?></p>
+                        <p><?= nl2br(strip_tags($post['content'])) ?></p>
                         <p><em><strong>le <?= $post['creation_date_fr'] ?></strong></em></p>
                     </div>
                 </div>
