@@ -273,12 +273,17 @@ try { // On essaie de faire des choses
 
 //-------> Ajout de l'action pour la modification de la bio
 		elseif ($_GET['action'] == 'modifiedBio'){
-			if (session_start() && isset($_SESSION['login']) && isset($_SESSION['pass']) && isset($_POST['biography'])) {
-				modifiedBio($_POST['biography']);
+			if (isset($_POST['biography']) && !empty($_POST['biography'])) {
+				if (session_start() && isset($_SESSION['login']) && isset($_SESSION['pass']) && isset($_POST['biography'])) {
+					modifiedBio($_POST['biography']);
+				}
+				else {
+					session_destroy();
+					zozor();
+				}
 			}
 			else {
-				session_destroy();
-				zozor();
+				throw new Exception('Action sur la biographie non valide !!!');
 			}
 		}
 //--------->FIN
