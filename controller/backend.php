@@ -150,3 +150,15 @@ function showModifyBioView()
 	$biography = $bioManager->getBio();
 	require('view/backend/modifyBioView.php');
 }
+
+function modifiedBio($bio) 
+{
+	$bioManager = new BioManager();
+	$modifyBio = $bioManager->modifyBio($bio);
+	if ($modifyBio === false) {
+		die('Impossible de modifier la biographie !');
+	}
+	else {
+		header('Location: index.php?action=biography');
+	}
+}

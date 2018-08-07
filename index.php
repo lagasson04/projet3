@@ -260,15 +260,27 @@ try { // On essaie de faire des choses
 //--------->FIN
 
 //---------> Ajout de l'action pour la vue de modification de la biographie
-        elseif ($_GET['action'] == 'showModifyBioView'){
-            if (session_start() && isset($_SESSION['login']) && isset($_SESSION['pass'])) {
-                showModifyBioView();
-            }
-            else {
-                session_destroy();
-                zozor();
-            }
-        }    
+		elseif ($_GET['action'] == 'showModifyBioView'){
+			if (session_start() && isset($_SESSION['login']) && isset($_SESSION['pass'])) {
+				showModifyBioView();
+			}
+			else {
+				session_destroy();
+				zozor();
+			}
+		}    
+//--------->FIN
+
+//-------> Ajout de l'action pour la modification de la bio
+		elseif ($_GET['action'] == 'modifiedBio'){
+			if (session_start() && isset($_SESSION['login']) && isset($_SESSION['pass']) && isset($_POST['biography'])) {
+				modifiedBio($_POST['biography']);
+			}
+			else {
+				session_destroy();
+				zozor();
+			}
+		}
 //--------->FIN
 
 		else {
