@@ -234,6 +234,18 @@ try { // On essaie de faire des choses
 		}
 //--------->FIN
 
+//---------> Ajout de l'action de confirmation de suppression du commentaire
+		elseif ($_GET['action']  == 'confirmDeleteCommentView') {
+			if (session_start() && isset($_SESSION['login']) && isset($_SESSION['pass']) && isset($_POST['deleteCom'])) {
+				confirmDeleteCommentView();
+			}
+			else {
+				session_destroy();
+				zozor();
+			}
+		}
+//--------->FIN
+
 		else {
 			throw new Exception('Action non valide !!!');
 		}

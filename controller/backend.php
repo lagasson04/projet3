@@ -126,3 +126,8 @@ function modComment($idc)
 		header('Location: index.php?action=showReportedComment');
 	}
 }
+
+function confirmDeleteCommentView()
+{
+	require('view/backend/confirmDeleteCommentView.php');
+}
