@@ -246,6 +246,19 @@ try { // On essaie de faire des choses
 		}
 //--------->FIN
 
+//-------> Ajout de l'action pour la suppression des commentaires
+		elseif ($_GET['action'] == 'delComment'){
+			if (session_start() && isset($_SESSION['login']) && isset($_SESSION['pass']) && isset($_GET['idc'])) {
+				deleteComment($_GET['idc']);
+			}
+
+			else {
+				session_destroy();
+				zozor();
+			}
+		}
+//--------->FIN
+
 		else {
 			throw new Exception('Action non valide !!!');
 		}

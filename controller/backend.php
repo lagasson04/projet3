@@ -131,3 +131,15 @@ function confirmDeleteCommentView()
 {
 	require('view/backend/confirmDeleteCommentView.php');
 }
+
+function deleteComment($idc) 
+{
+	$commentManager = new CommentManager();
+	$deletedComment = $commentManager->deleteComment($idc);
+	if ($deletedComment == false) {
+		throw new Exception('Impossible de supprimer le commentaire');
+	}
+	else {
+		header('Location: index.php?action=showReportedComment');
+	}
+}
