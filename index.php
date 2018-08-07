@@ -259,6 +259,18 @@ try { // On essaie de faire des choses
 		}
 //--------->FIN
 
+//---------> Ajout de l'action pour la vue de modification de la biographie
+        elseif ($_GET['action'] == 'showModifyBioView'){
+            if (session_start() && isset($_SESSION['login']) && isset($_SESSION['pass'])) {
+                showModifyBioView();
+            }
+            else {
+                session_destroy();
+                zozor();
+            }
+        }    
+//--------->FIN
+
 		else {
 			throw new Exception('Action non valide !!!');
 		}

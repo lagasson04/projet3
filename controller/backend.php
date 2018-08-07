@@ -143,3 +143,10 @@ function deleteComment($idc)
 		header('Location: index.php?action=showReportedComment');
 	}
 }
+
+function showModifyBioView() 
+{
+	$bioManager = new BioManager();
+	$biography = $bioManager->getBio();
+	require('view/backend/modifyBioView.php');
+}
