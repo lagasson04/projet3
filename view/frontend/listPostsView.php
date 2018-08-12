@@ -20,8 +20,7 @@ while ($data = $posts->fetch())
 				<div class="card-body">
 					<p>
 						<!-- On affiche le contenu du billet -->
-						<p><?= nl2br(strip_tags($data['extractString'])) ?><a class="readmore" href="index.php?action=post&amp;id=<?= $data['id'] ?>"><br>...Lire plus</a>
-						</p>
+						<?= nl2br(strip_tags($data['extractString'])) ?><a class="readmore" href="index.php?action=post&amp;id=<?= $data['id'] ?>"><br>...Lire plus</a>
 						<em><strong>le <?= $data['creation_date_fr'] ?></strong></em>
 						<p><em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Commentaires</a></em></p>
 						<hr>
