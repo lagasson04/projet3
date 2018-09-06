@@ -18,7 +18,7 @@
           <a class="nav-link" href="index.php?action=adminView"><i class="fa fa-tachometer" aria-hidden="true"></i> Tableau de bord</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="index.php?action=showModifPage"><i class="fa fa-list" aria-hidden="true"></i> Listes des chapitres</a>
+          <a class="nav-link" href="index.php?action=showModifPage"><i class="fa fa-list" aria-hidden="true"></i> Liste des chapitres</a>
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">

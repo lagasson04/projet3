@@ -51,8 +51,8 @@ function addComment($postId, $author, $comment)
 
 function reportComment($idc, $idp)
 {
-	$commentManager = new CommentManager();
-	$affectedLines = $commentManager->reportComment($idc);
+	$commentManager = new CommentManager();// Création d'un objet
+	$affectedLines = $commentManager->reportComment($idc); // Appel d'une fonction de cet objet
 	if ($affectedLines === false) {
 		throw new Exception('Impossible de signaler le commentaire !!');
 	}
